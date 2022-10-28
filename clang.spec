@@ -74,7 +74,7 @@ Patch8:     0001-clang-Fix-interaction-between-asm-labels-and-inline-.patch
 
 # Backport of https://reviews.llvm.org/D133800 to the 15.0.0 release.
 # TODO: Drop once updating to 15.0.1 or newer.
-Patch9:     0001-Clang-15.0.1-Downgrade-implicit-int-and-implicit-fun.patch
+#Patch9:     0001-Clang-15.0.1-Downgrade-implicit-int-and-implicit-fun.patch
 
 %if %{without compat_build}
 # Patches for clang-tools-extra
@@ -258,13 +258,6 @@ Requires:      python3
 
 
 %prep
-%{gpgverify} --keyring='%{SOURCE4}' --signature='%{SOURCE3}' --data='%{SOURCE0}'
-
-%if %{with compat_build}
-%autosetup -n %{clang_srcdir} -p2
-%else
-
-%{gpgverify} --keyring='%{SOURCE4}' --signature='%{SOURCE2}' --data='%{SOURCE1}'
 %setup -T -q -b 1 -n %{clang_tools_srcdir}
 %autopatch -m200 -p2
 
