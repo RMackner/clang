@@ -49,8 +49,8 @@ URL:		http://llvm.org
 Source0:	https://github.com/llvm/llvm-project/releases/download/llvmorg-%{clang_version}%{?rc_ver:-rc%{rc_ver}}/%{clang_srcdir}.tar.xz
 Source3:	https://github.com/llvm/llvm-project/releases/download/llvmorg-%{clang_version}%{?rc_ver:-rc%{rc_ver}}/%{clang_srcdir}.tar.xz.sig
 %if %{without compat_build}
-Source1:	https://github.com/llvm/llvm-project/releases/download/llvmorg-%{clang_version}%{?rc_ver:-rc%{rc_ver}}/%{clang_tools_srcdir}.tar.xz
-Source2:	https://github.com/llvm/llvm-project/releases/download/llvmorg-%{clang_version}%{?rc_ver:-rc%{rc_ver}}/%{clang_tools_srcdir}.tar.xz.sig
+Source1:	https://github.com/llvm/llvm-project/releases/download/llvmorg-15.0.3/clang-tools-extra-15.0.3.src.tar.xz
+Source2:	https://github.com/llvm/llvm-project/releases/download/llvmorg-15.0.3/clang-tools-extra-15.0.3.src.tar.xz.sig
 %endif
 Source4:	release-keys.asc
 %if %{without compat_build}
