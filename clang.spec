@@ -258,6 +258,14 @@ Requires:      python3
 
 
 %prep
+#%{gpgverify} --keyring='%{SOURCE4}' --signature='%{SOURCE3}' --data='%{SOURCE0}'
+
+%if %{with compat_build}
+%autosetup -n %{clang_srcdir} -p2
+%else
+
+#%{gpgverify} --keyring='%{SOURCE4}' --signature='%{SOURCE2}' --data='%{SOURCE1}'
+	
 %setup -T -q -b 1 -n %{clang_tools_srcdir}
 %autopatch -m200 -p2
 
