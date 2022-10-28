@@ -471,19 +471,19 @@ mkdir -p %{buildroot}%{pkg_libdir}/clang/%{version}/{include,lib,share}/
 ln -s %{_datadir}/clang/clang-format-diff.py %{buildroot}%{_bindir}/clang-format-diff
 %endif
 
-%check
-%if %{without compat_build}
-%if %{with check}
+#%check
+#%if %{without compat_build}
+#%if %{with check}
 # requires lit.py from LLVM utilities
 # FIXME: Fix failing ARM tests
-LD_LIBRARY_PATH=%{buildroot}/%{_libdir} %{__ninja} check-all -C %{__cmake_builddir} || \
-%ifarch %{arm}
-:
-%else
-false
-%endif
-%endif
-%endif
+#LD_LIBRARY_PATH=%{buildroot}/%{_libdir} %{__ninja} check-all -C %{__cmake_builddir} || \
+#%ifarch %{arm}
+#:
+#%else
+#false
+#%endif
+#%endif
+#%endif
 
 
 %if %{without compat_build}
