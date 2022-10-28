@@ -6,7 +6,7 @@
 %global maj_ver 15
 %global min_ver 0
 %global patch_ver 3
-%global rc_ver 3
+#global rc_ver 3
 %global clang_version %{maj_ver}.%{min_ver}.%{patch_ver}
 
 %if %{with compat_build}
@@ -32,10 +32,10 @@
 %global _smp_mflags -j8
 %endif
 
-%global clang_srcdir clang-15.0.3.src
-%global clang_tools_srcdir clang-tools-extra-15.0.3.src
+%global clang_srcdir clang-%{clang_version}%{?rc_ver:rc%{rc_ver}}.src
+%global clang_tools_srcdir clang-tools-extra-%{clang_version}%{?rc_ver:rc%{rc_ver}}.src
 
-%if !%{maj_ver} && 3%{?rc_ver}
+%if !%{maj_ver} && 0%{?rc_ver}
 %global abi_revision 2
 %endif
 
@@ -49,8 +49,8 @@ URL:		http://llvm.org
 Source0:	https://github.com/llvm/llvm-project/releases/download/llvmorg-%{clang_version}%{?rc_ver:-rc%{rc_ver}}/%{clang_srcdir}.tar.xz
 Source3:	https://github.com/llvm/llvm-project/releases/download/llvmorg-%{clang_version}%{?rc_ver:-rc%{rc_ver}}/%{clang_srcdir}.tar.xz.sig
 %if %{without compat_build}
-Source1:	https://github.com/llvm/llvm-project/releases/download/llvmorg-15.0.3/clang-tools-extra-15.0.3.src.tar.xz
-Source2:	https://github.com/llvm/llvm-project/releases/download/llvmorg-15.0.3/clang-tools-extra-15.0.3.src.tar.xz.sig
+Source1:	https://github.com/llvm/llvm-project/releases/download/llvmorg-%{clang_version}%{?rc_ver:-rc%{rc_ver}}/%{clang_tools_srcdir}.tar.xz
+Source2:	https://github.com/llvm/llvm-project/releases/download/llvmorg-%{clang_version}%{?rc_ver:-rc%{rc_ver}}/%{clang_tools_srcdir}.tar.xz.sig
 %endif
 Source4:	release-keys.asc
 %if %{without compat_build}
@@ -74,12 +74,12 @@ Patch8:     0001-clang-Fix-interaction-between-asm-labels-and-inline-.patch
 
 # Backport of https://reviews.llvm.org/D133800 to the 15.0.0 release.
 # TODO: Drop once updating to 15.0.1 or newer.
-#Patch9:     0001-Clang-15.0.1-Downgrade-implicit-int-and-implicit-fun.patch
+Patch9:     0001-Clang-15.0.1-Downgrade-implicit-int-and-implicit-fun.patch
 
 %if %{without compat_build}
 # Patches for clang-tools-extra
 # See https://reviews.llvm.org/D120301
-#Patch201:   0001-clang-tools-extra-Make-test-dependency-on-LLVMHello-.patch
+Patch201:   0001-clang-tools-extra-Make-test-dependency-on-LLVMHello-.patch
 %endif
 
 BuildRequires:	clang
