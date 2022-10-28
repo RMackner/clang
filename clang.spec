@@ -35,7 +35,7 @@
 %global clang_srcdir clang-15.0.3.src
 %global clang_tools_srcdir clang-tools-extra-15.0.3.src
 
-%if !%{maj_ver} && 0%{?rc_ver}
+%if !%{maj_ver} && 3%{?rc_ver}
 %global abi_revision 2
 %endif
 
