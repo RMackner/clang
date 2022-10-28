@@ -32,8 +32,8 @@
 %global _smp_mflags -j8
 %endif
 
-%global clang_srcdir clang-%{clang_version}%{?rc_ver:rc%{rc_ver}}.src
-%global clang_tools_srcdir clang-tools-extra-%{clang_version}%{?rc_ver:rc%{rc_ver}}.src
+%global clang_srcdir clang-15.0.3.src
+%global clang_tools_srcdir clang-tools-extra-15.0.3.src
 
 %if !%{maj_ver} && 0%{?rc_ver}
 %global abi_revision 2
