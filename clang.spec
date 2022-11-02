@@ -5,7 +5,7 @@
 
 %global maj_ver 15
 %global min_ver 0
-%global patch_ver 3
+%global patch_ver 4
 #global rc_ver 3
 %global clang_version %{maj_ver}.%{min_ver}.%{patch_ver}
 
