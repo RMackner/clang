@@ -141,7 +141,7 @@ BuildRequires: perl(Term::ANSIColor)
 BuildRequires: perl(Text::ParseWords)
 BuildRequires: perl(Sys::Hostname)
 
-Requires:	%{name}-libs%{?_isa} = %{version}-%{release}
+Requires:	%{name}-libs%{?_isa}
 
 # clang requires gcc, clang++ requires libstdc++-devel
 # - https://bugzilla.redhat.com/show_bug.cgi?id=1021645
